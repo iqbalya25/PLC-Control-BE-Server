@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  cloudbackend:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - MQTT_BROKER_URL=tcp://test.mosquitto.org:1883
+      - MQTT_CLIENT_ID=cloud-backend-client
+      - MQTT_TOPIC_COMMAND=plc/command
+      - MQTT_TOPIC_STATUS=plc/status
+    volumes:
+      - ./logs:/app/logs
