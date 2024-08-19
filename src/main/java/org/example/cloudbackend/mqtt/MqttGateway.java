@@ -6,6 +6,5 @@ import org.springframework.messaging.handler.annotation.Header;
 
 @MessagingGateway(defaultRequestChannel = "mqttOutboundChannel")
 public interface MqttGateway {
-    void sendToMqtt(String data);
-    void sendToMqtt(@Header(MqttHeaders.TOPIC) String topic, String payload);
+    void sendToMqtt(@Header(MqttHeaders.TOPIC) String topic, String data);
 }
